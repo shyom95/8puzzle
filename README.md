@@ -15,6 +15,14 @@ import javax.sound.sampled.UnsupportedAudioFileException;
 import sun.audio.AudioPlayer;
 import sun.audio.*;
 import java.io.*;
+import java.net.URL;
+import javax.swing.*;
+import javax.sound.sampled.*;
+import java.io.*;
+import javax.sound.sampled.*;
+import java.io.File;
+import java.io.IOException;
+import javax.sound.sampled.LineEvent.Type;
 
 /**
  *
@@ -429,7 +437,7 @@ public class Puzzel8 extends javax.swing.JFrame {
 ////
     private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {                                           
 
-        //sound("mu.wav");
+     //playClip("wav/3.wav");
 
 
     }                                          
@@ -450,16 +458,39 @@ public class Puzzel8 extends javax.swing.JFrame {
 //    
     }                                       
 
-//    public void sound(String s) {
-////InputStream is = getClass().getClassLoader().getResourceAsStream("sounds/hand.wav");
-//        AudioStream in;
-//        try {
-//            InputStream test = new FileInputStream("mu.wav");
-//            in = new AudioStream(test);
-//            AudioPlayer.player.start(in);
-//        } catch (Exception e) {
-//            JOptionPane.showMessageDialog(null, e);
+// public static void playClip(String clipFile) throws IOException, UnsupportedAudioFileException, LineUnavailableException, InterruptedException {
+//        
+//        class AudioListener implements LineListener {
+//            private boolean done = false;
+//            @Override public synchronized void update(LineEvent event) {
+//                Type eventType = event.getType();
+//                if (eventType != Type.STOP && eventType != Type.CLOSE) {
+//                } else {
+//                    done = true;
+//                    notifyAll();
+//                }
+//            }
+//            public synchronized void waitUntilDone() throws InterruptedException {
+//                while (!done) { wait(); }
+//            }
 //        }
+//        
+//        AudioListener listener = new AudioListener();
+//        AudioInputStream audioInputStream = AudioSystem.getAudioInputStream( new File(clipFile));
+//        try {
+//            Clip clip = AudioSystem.getClip();
+//            clip.addLineListener(listener);
+//            clip.open(audioInputStream);
+//            try {
+//                clip.start();
+//                listener.waitUntilDone();
+//            } finally {
+//                clip.close();
+//            }
+//        } finally {
+//            audioInputStream.close();
+//        }
+//    }
 
 //    }
     /**
